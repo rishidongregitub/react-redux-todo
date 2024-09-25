@@ -1,4 +1,4 @@
-import { ADD_TODO, FILLER_TODO, MARK_ALL_COMPLETED, MARK_COMPLETED, MARK_INCOMPLETED, REMOVE_TODO, TOGGLE_TODO } from "./actionTypes"
+import { ADD_TODO, FILTER_TODO, MARK_ALL_COMPLETED, MARK_COMPLETED, MARK_INCOMPLETED, REMOVE_TODO, TOGGLE_TODO, UPDATE_SEARCH_TERM } from "./actionTypes"
 
 export const addTodo = (text) => ({
     type: ADD_TODO,
@@ -21,13 +21,13 @@ export const markIncompleted = (id) => ({
     payload: { id }
 })
 export const filterTodo = (filter) => ({
-    type: FILLER_TODO,
+    type: FILTER_TODO,
     payload: { filter }
 })
 export const markAllCompleted = () => ({
     type: MARK_ALL_COMPLETED,
 })
 export const updateSearchTerm = (searchTerm) => ({
-    type: MARK_ALL_COMPLETED,
+    type: UPDATE_SEARCH_TERM,
     payload: { searchTerm }
 })
