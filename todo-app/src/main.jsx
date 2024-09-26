@@ -4,10 +4,10 @@ import './index.css'
 import { Provider } from 'react-redux'
 import store from './store.js'
 
-console.log("Provider Store:", store.getState()); // Ensure the store is correct
+console.log("Provider Store:", store.getState());
 
 createRoot(document.getElementById('root')).render(
-  <Provider store={store}>   {/* Fixing the typo 'stoe' to 'store' */}
+  <Provider store={store}>
     <App />
   </Provider>
 )
