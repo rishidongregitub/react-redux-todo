@@ -1,10 +1,10 @@
-import { createStore } from 'redux'
+import {configureStore } from '@reduxjs/toolkit'
 import todoReducer from './redux/reducers'
-import { composeWithDevTools } from 'redux-devtools-extension';
 
 
-const store = createStore(
-    todoReducer,
-    composeWithDevTools()
-    );
+const store = configureStore({
+    reducer : {
+        todoReducer,
+    }
+});
 export default store;
