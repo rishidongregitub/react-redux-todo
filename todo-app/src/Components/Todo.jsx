@@ -1,14 +1,15 @@
 import { useState } from "react";
 import { BsPatchPlusFill, BsSearch } from "react-icons/bs";
-import {useDispatch} from 'react-redux'
+import { useDispatch } from 'react-redux'
+import FilterButton from "./FilterButton";
 
 const Todo = () => {
     const dispatch = useDispatch();
 
     const [newtodoText, setNewTodoText] = useState("");
     const [searchTerm, setSearchTerm] = useState("");
-    
-    const handleAddTodo = (text)=>{
+
+    const handleAddTodo = (text) => {
         dispatch(addTodo(text))
     }
     const handleAddTodoClick = () => {
@@ -17,7 +18,7 @@ const Todo = () => {
             setNewTodoText("");
         }
     }
-    const handleSearchChange=(value)=>{
+    const handleSearchChange = (value) => {
         setSearchTerm(value);
         dispatch()
     }
@@ -30,10 +31,11 @@ const Todo = () => {
                 <button onClick={handleAddTodoClick} className="ml-4 p-2 bg-blue-500 text-white rounded hover:bg-blue-600 focus:outline-none"><BsPatchPlusFill /></button>
             </div>
             {/*Input text and btn*/}
-            <div>
+            <div className="flex items-center justify-between">
+                <FilterButton/>
                 <div className="flex items-center mb-4">
-                    <input value={searchTerm} onChange={(e)=> handleSearchChange(e.target.value)} type="text" name="addTodoInput" id="addTodoInput" placeholder="Searxh" className="flex-grow p-2 border-b-2 border-gray-300 focus:outline-none focus:border-blue-500" />
-                <button onClick={handleAddTodoClick} className="ml-4 p-2 bg-blue-500 text-white rounded hover:bg-blue-600 focus:outline-none"><BsSearch /></button>
+                    <input value={searchTerm} onChange={(e) => handleSearchChange(e.target.value)} type="text" name="addTodoInput" id="addTodoInput" placeholder="Searxh" className="flex-grow p-2 border-b-2 border-gray-300 focus:outline-none focus:border-blue-500" />
+                    <button onClick={handleAddTodoClick} className="ml-4 p-2 bg-blue-500 text-white rounded hover:bg-blue-600 focus:outline-none"><BsSearch /></button>
                 </div>
             </div>
         </div>
