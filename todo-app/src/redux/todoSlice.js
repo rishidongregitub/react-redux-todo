@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
     todos: [],
-    filter: 'all',
+    filter: 'ALL',
     searchTerm: '',
 }
 const todoSlice = createSlice({
@@ -20,7 +20,7 @@ const todoSlice = createSlice({
             }
         },
         removeTodo: (state, action) => {
-            state.todos.filter(todo => todo.id !== action.payload.id);
+            state.todos = state.todos.filter(todo => todo.id !== action.payload.id);
         },
         markCompleted: (state, action) => {
             const todo = state.todos.find(todo => todo.id === action.payload.id);

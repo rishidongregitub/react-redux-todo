@@ -4,10 +4,10 @@ import { filterTodo, markAllCompleted } from '../redux/todoSlice';
 
 const FilterButton = () => {
     const dispatch = useDispatch();
-    const currentFilter = useSelector((state) => state.todos.filter); // Access correct slice
+    const currentFilter = useSelector((state) => state.todos.filter);
 
     const handleFilter = (filter) => {
-        dispatch(filterTodo({ filter })); // Correct dispatch action
+        dispatch(filterTodo({ filter })); 
     };
 
     return (
@@ -22,7 +22,7 @@ const FilterButton = () => {
                 <option value="INCOMPLETED">Incompleted</option>
             </select>
             <button
-                onClick={() => dispatch(markAllCompleted())} // Proper dispatch call
+                onClick={() => dispatch(markAllCompleted())}
                 className='text-sm px-2 py-1 bg-purple-500 text-white ml-2 rounded'
             >
                 Mark All Completed

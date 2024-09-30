@@ -3,7 +3,7 @@ import { BsPatchPlusFill, BsSearch } from "react-icons/bs";
 import { useDispatch } from 'react-redux'
 import FilterButton from "./FilterButton";
 import TodoList from "./TodoList";
-import { addTodo } from "../redux/todoSlice";
+import { addTodo, updateSearchTerm } from "../redux/todoSlice";
 
 const Todo = () => {
     const dispatch = useDispatch();
@@ -22,7 +22,7 @@ const Todo = () => {
     }
     const handleSearchChange = (value) => {
         setSearchTerm(value);
-        dispatch()
+        dispatch(updateSearchTerm({searchTerm : value}))
     }
     return (
         <div className='max-w-4xl mx-auto sm:mt-8 p-4 bg-gray-100 rounded'>
