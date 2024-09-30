@@ -14,28 +14,32 @@ const TodoItem = ({ todo, index }) => {
       </div>
       <div className="space-x-3 ml-3">
         <button
-          onClick={() => dispatch(toggleTodo(index))}
+          onClick={() => dispatch(toggleTodo({ id: todo.id }))}
           className="mr-2 text-sm bg-blue-500 text-white sm:px-2 py-1 px-1 rounded"
+          title={todo.completed ? "Mark as incomplete" : "Mark as complete"}
         >
           {todo.completed ? <FaToggleOff /> : <FaToggleOn />}
         </button>
         <button
-          onClick={() => dispatch(removeTodo(todo.id))}
+          onClick={() => dispatch(removeTodo({ id: todo.id }))}
           className="mr-2 text-sm bg-red-500 text-white sm:px-2 py-1 px-1 rounded"
+          title="Remove todo"
         >
           <FaTrash />
         </button>
         {todo.completed ? (
           <button
-            onClick={() => dispatch(markIncompleted(index))}
+            onClick={() => dispatch(markIncompleted({ id: todo.id }))}
             className="mr-2 text-sm bg-yellow-500 text-white sm:px-2 py-1 px-1 rounded"
+            title="Mark as incomplete"
           >
             <FaTimes />
           </button>
         ) : (
           <button
-            onClick={() => dispatch(markCompleted(index))}
+            onClick={() => dispatch(markCompleted({ id: todo.id }))}
             className="mr-2 text-sm bg-blue-500 text-white sm:px-2 py-1 px-1 rounded"
+            title="Mark as complete"
           >
             <FaCheck />
           </button>

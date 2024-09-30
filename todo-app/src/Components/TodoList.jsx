@@ -4,17 +4,15 @@ import TodoItem from './TodoItem';
 
 const TodoList = () => {
     const filterTodo = useSelector((state) => {
-        const todos = state.todos.todos; // Access todos correctly
-        const filter = state.todos.filter; // Access filter correctly
-        const searchTerm = state.todos.searchTerm; // Access searchTerm correctly
+        const todos = state.todos.todos;
+        const filter = state.todos.filter;
+        const searchTerm = state.todos.searchTerm;
 
         return todos.filter((todo) => {
-            const matchFilter = 
+            const matchFilter =
                 (filter === "COMPLETED" && todo.completed) ||
-                (filter === "INCOMPLETED" && !todo.completed) || 
+                (filter === "INCOMPLETED" && !todo.completed) ||
                 (filter === "ALL");
-
-            // Add defensive checks
             const matchSearch = todo.text && todo.text.toLowerCase().includes(searchTerm.toLowerCase());
 
             return matchFilter && matchSearch;
@@ -25,9 +23,9 @@ const TodoList = () => {
     return (
         <ul>
             <li className='my-2 text-sm italic'>All Your Notes Here..</li>
-            {filterTodo.map((todo,index) => (
-               <TodoItem key={index} todo={todo} index={index}/>
-            ))}            
+            {filterTodo.map((todo, index) => (
+                <TodoItem key={index} todo={todo} index={index} />
+            ))}
         </ul>
     );
 }

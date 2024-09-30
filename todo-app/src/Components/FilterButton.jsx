@@ -5,7 +5,6 @@ import { filterTodo, markAllCompleted } from '../redux/todoSlice';
 const FilterButton = () => {
     const dispatch = useDispatch();
     const currentFilter = useSelector((state) => state.todos.filter);
-
     const handleFilter = (filter) => {
         dispatch(filterTodo({ filter })); 
     };
